@@ -36,7 +36,6 @@ public class AuthRestUtil {
 	 
 		HttpMethod method = getPostResult(url, paraMap);// 使用POST方式提交数据
 		
-		 
 		String response = "";
 		try {
 			client.executeMethod(method);

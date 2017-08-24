@@ -36,7 +36,6 @@ public class AuthClient {
 		paraMap.put("client_secret", client_secret);
 		paraMap.put("user_ip", user_ip);
 		return AuthRestUtil.postAuthServer(domain, port, protocol, "/auth/login/login", paraMap);
-
 	}
 
 	// 登出验证： access_token ip
@@ -46,7 +45,6 @@ public class AuthClient {
 		paraMap.put("access_token", access_token);
 		paraMap.put("user_ip", user_ip);
 		return AuthRestUtil.postAuthServer(domain, port, protocol, "/auth/login/logout", paraMap);
-
 	}
 
 	/**
@@ -61,7 +59,6 @@ public class AuthClient {
 		paraMap.put("user_ip", user_ip);
 		paraMap.put("rest_params", rest_params);
 		return AuthRestUtil.postAuthServer(domain, port, protocol, "/auth/token/verify_token", paraMap);
-
 	}
 
 	/**
@@ -80,24 +77,5 @@ public class AuthClient {
 		return AuthRestUtil.postAuthServer(domain, port, protocol, "/auth/token/access_token", paraMap);
 
 	}
-
-	// for test
-	public static void main(String[] args) {
-
-		String result = AuthClient.login("172.16.110.101", 8080, "http", "country", "9218965eb72c92a549dd5a3301125OF6",
-				"3E6570bKX4okbBT10TANVols", "349lUwapX54MbjA0wM5q0ZiS", "192.168.2.1");
-		System.out.println(result);
-		
-// 		String result2 = AuthClient.logout("172.16.110.101", 8080, "http", "0dbN6MffL4ib8Bl089934vvQ", "127.0.0.1");
-//		System.out.println(result2);
-
-		// String result = AuthClient.verfiyToken("172.19.108.10", 8080,"http",
-		// "1JBp9T4wv4k7at30hIj7lQWT","10.1.1.1","xx");
-		// System.out.println(result);
-
-//		 String result3 = AuthClient.accessToken("172.19.110.101", 8080,"http",
-//		 "3E6570bKX4okbBT10TANVols","349lUwapX54MbjA0wM5q0ZiS","refresh_token","4l0grDbz64JmaBr0h1kXlag9");
-//		 System.out.println("result3="+result3);
- 	}
 
 }
