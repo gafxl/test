@@ -1,0 +1,17 @@
+*.class
+.metadata/
+target/
+.project
+.out
+.rar
+setting/
+.classpath
+*.bak
+WebContent/WEB-INF/classes
+WebContent/WEB-INF/lib
+*.iml
+.idea/
+.settings/
+bin
+build.properties
+META-INFO/
