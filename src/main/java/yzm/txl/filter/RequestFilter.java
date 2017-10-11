@@ -28,10 +28,6 @@ import com.hazelcast.core.HazelcastInstance;
 public class RequestFilter implements Filter {
 
 	private Logger logger = org.slf4j.LoggerFactory.getLogger(RequestFilter.class);
-	@Autowired
-	private HazelcastInstance instance;
-	@Autowired
-	private MongoTemplate mongo;
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -46,8 +42,7 @@ public class RequestFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		logger.debug("instance = "+instance);
-		logger.debug("mongo = "+mongo.getCollectionNames().size());
+		logger.info("do filger...");
 		chain.doFilter(request, response);
 	}
 

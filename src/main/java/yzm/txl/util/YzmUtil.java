@@ -17,10 +17,12 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
  * @author txl
  *
  */
+@SuppressWarnings("restriction")
 public class YzmUtil {
 
-	static char[] chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-			'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+	//屏蔽掉容易混淆的字符，O、0、Z、2、I、1
+	static char[] chars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R',
+			'S', 'T', 'U', 'V', 'W', 'X', 'Y', '3', '4', '5', '6', '7', '8', '9' };
 	static String md5_key = "sdsyzm";
 
 	/**
@@ -58,12 +60,14 @@ public class YzmUtil {
 		int height = (int) (fontSize * 1.2); // 图片高度，根据字体大小自动调整；调整这个系数可以调整字体占图片的比例
 		int avgWidth = width / count; // 字符平均占位宽度
 		int maxDegree = 26; // 最大旋转度数
+		maxDegree = 20;
 
 		// 背景颜色
 		Color bkColor = Color.WHITE;
 		// 验证码的颜色
-		Color[] catchaColor = { Color.MAGENTA, Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN, Color.ORANGE,
-				Color.PINK };
+//		Color[] catchaColor = { Color.MAGENTA, Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN, Color.ORANGE,
+//				Color.PINK };
+		Color[] catchaColor = { Color.MAGENTA, Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN, Color.ORANGE};
 
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = image.createGraphics();
@@ -112,8 +116,7 @@ public class YzmUtil {
 
 			g.rotate(-degree * Math.PI / 180); // 画完一个字符之后，旋转回原来的角度
 			g.translate(avgWidth, 0);// 移动到下一个画画的原点
-			// System.out.println(c+": x="+x+" y="+y+" degree="+degree+"
-			// offset="+offsetFactor);
+			// System.out.println(c+": x="+x+" y="+y+" degree="+degree+" offset="+offsetFactor);
 
 			// X、Y坐标在合适的范围内随机，不旋转：
 			// g.drawString(String.valueOf(c),
