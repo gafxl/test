@@ -11,10 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-
-import com.hazelcast.core.HazelcastInstance;
 
 /**
  * rest请求过滤器
